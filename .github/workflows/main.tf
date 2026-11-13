@@ -33,3 +33,12 @@ resource "aws_s3_bucket" "example" {
     Environment = "Dev"
   }
 }
+#s3 creation:
+resource "aws_s3_bucket2" "example" {
+  bucket = "my-tf-prod-bucket-lami"
+
+  tags = {
+    Name        = "Lami_My_prodbucket"
+    Environment = "prod"
+  }
+}
