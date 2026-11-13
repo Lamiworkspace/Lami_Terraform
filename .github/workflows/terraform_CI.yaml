@@ -42,4 +42,4 @@ jobs:
         - name: getoutputbetweenjobs
           run: |
             echo "Docker version is"
-            echo "${{needs.outputbetweensteps.outputs.docker_version}}""
+            echo "${{needs.outputbetweensteps.outputs.docker_version}}"
