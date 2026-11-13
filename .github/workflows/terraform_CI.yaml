@@ -21,6 +21,8 @@ jobs:
   outputbetweensteps:
     name: outputbetweensteps
     runs-on: ubuntu-latest
+    outputs:
+      docker_version: "${{steps.out.outputs.API_VERSION}}"
     steps:
       - name: output01
         id: out
@@ -30,4 +32,14 @@ jobs:
         run: |
           echo "Calling API VERSION NUMBER"
           echo "${{ steps.out.outputs.API_VERSION }}"
-    
+      
+#output between jobs:
+  outputbetweenjobs:
+      name: joboutput
+      runs-on: ubuntu-latest
+      needs: ['outputbetweensteps']
+      steps:
+        - name: getoutputbetweenjobs
+          run: |
+            echo "Docker version is"
+            echo "${{needs.outputbetweensteps.outputs.docker_version}}""
