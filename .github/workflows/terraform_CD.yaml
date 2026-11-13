@@ -1,8 +1,8 @@
 name: terraform workflow
 on:
-  # push:
-  #   branches:
-  #     - main2
+  push:
+    branches:
+      - main
   # pull_request:
   #   branches:
   #     - main
@@ -31,9 +31,9 @@ jobs:
   terraformjob:
       name: terraformjob
       runs-on: ubuntu-latest
-      
-      steps:
-      
+      environment: prod
+      needs: tfedv
+      steps:   
         - name: step-checkout
           uses: actions/checkout@v2.3.4
 
