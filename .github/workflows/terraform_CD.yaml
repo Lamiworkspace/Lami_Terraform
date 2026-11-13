@@ -9,10 +9,28 @@ on:
 
   workflow_dispatch:
 jobs:
+  tfedv:
+      name: terraformjob
+      runs-on: ubuntu-latest
+      steps:
+      
+        - name: step-checkout
+          uses: actions/checkout@v2.3.4
+
+        - name: terraform setup
+          uses: hashicorp/setup-terraform@v3
+
+        - name: terraform init
+          run: terraform init
+          working-directory: ./.github/workflows
+          
+        - name: terraform plan
+          run: terraform plan
+          working-directory: ./.github/workflows
+
   terraformjob:
       name: terraformjob
       runs-on: ubuntu-latest
-      
       
       steps:
       
