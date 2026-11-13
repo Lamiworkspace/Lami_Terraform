@@ -14,15 +14,15 @@ provider "aws" {
   secret_key = "VxUKHXmAtVTKlLRlg+uGQhgG+QFWvnIWqy6ne81R"
 }
 
-terraform {
-  backend "s3" {
-    bucket         = "quest-dev-bucket"
-    key            = "tf_statefile/terraform.tfstate"
-    region         = "eu-north-1"
-    access_key = "AKIA54D4WQB6UHJQDV4H"
-    secret_key = "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"              
-  }
-}
+#terraform {
+#  backend "s3" {
+#    bucket         = "quest-dev-bucket"
+#   key            = "tf_statefile/terraform.tfstate"
+#    region         = "eu-north-1"
+#    access_key = "AKIA54D4WQB6UHJQDV4H"
+#    secret_key = "VxUKHXmAtVTKlLRlg+uGQhgG+QFWvnIWqy6ne81R"              
+#  }
+#}
 
 #s3 creation:
 resource "aws_s3_bucket" "example" {
