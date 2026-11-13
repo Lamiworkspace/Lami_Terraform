@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 jobs:
   tfedv:
-      name: terraformjob
+      name: tfjob
       runs-on: ubuntu-latest
       steps:
       
