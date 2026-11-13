@@ -2,6 +2,9 @@ name: terraform workflow
 on:
   push:
     branches:
+      - main2
+  pull_request:
+    branches:
       - main
 
   workflow_dispatch:
@@ -12,3 +15,31 @@ jobs:
     steps:
       - name: step-checkout
         uses: actions/checkout@v2.3.4
+
+#output value referance between two steps:
+
+  outputbetweensteps:
+    name: outputbetweensteps
+    runs-on: ubuntu-latest
+    outputs:
+      docker_version: "${{steps.out.outputs.API_VERSION}}"
+    steps:
+      - name: output01
+        id: out
+        run: echo "API_VERSION=10.2.2" >> "$GITHUB_OUTPUT" 
+
+      - name: calling_variable
+        run: |
+          echo "Calling API VERSION NUMBER"
+          echo "${{ steps.out.outputs.API_VERSION }}"
+      
+#output between jobs:
+  outputbetweenjobs:
+      name: joboutput
+      runs-on: ubuntu-latest
+      needs: ['outputbetweensteps']
+      steps:
+        - name: getoutputbetweenjobs
+          run: |
+            echo "Docker version is"
+            echo "${{needs.outputbetweensteps.outputs.docker_version}}"
