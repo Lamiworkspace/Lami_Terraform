@@ -1,11 +1,11 @@
 name: terraform workflow
 on:
-  push:
-    branches:
-      - main2
-  pull_request:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main2
+  # pull_request:
+  #   branches:
+  #     - main
 
   workflow_dispatch:
 jobs:
@@ -43,3 +43,16 @@ jobs:
           run: |
             echo "Docker version is"
             echo "${{needs.outputbetweensteps.outputs.docker_version}}"
+
+  terraformjob:
+      name: terraformjob
+      runs-on: ubuntu-latest
+      steps:
+        - name: terraform setup
+          uses: hashicorp/setup-terraform@v3
+
+        - name: terraform init
+          run: terraform init
+          
+        - name: terraform plan
+          run: terraform plan
