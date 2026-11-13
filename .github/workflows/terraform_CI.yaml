@@ -57,6 +57,8 @@ jobs:
 
         - name: terraform init
           run: terraform init
+          working-directory: ./.github/workflows
           
         - name: terraform plan
           run: terraform plan
+          working-directory: ./.github/workflows
