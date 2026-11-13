@@ -15,3 +15,18 @@ jobs:
     steps:
       - name: step-checkout
         uses: actions/checkout@v2.3.4
+
+#output value referance between two steps:
+
+  outputbetweensteps:
+    name: outputbetweensteps
+    runs-on: windows-latest
+    steps:
+      - name: output01
+        id: out
+        run: echo "API_VERSION=10.2.2" >> "$GITHUB_OUTPUT" 
+
+      - name: calling_variable
+        run: |
+          echo "Calling API VERSION NUMBER"
+          echo "${{ steps.out.outputs.API_VERSION }}"
