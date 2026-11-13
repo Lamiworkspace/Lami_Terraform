@@ -64,5 +64,5 @@ jobs:
           working-directory: ./.github/workflows
           
         - name: terraform apply
-          run: terraform apply -auto-approve tfplan
+          run: terraform apply -auto-approve
           working-directory: ./.github/workflows
