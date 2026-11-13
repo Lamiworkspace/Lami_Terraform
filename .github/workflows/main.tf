@@ -34,7 +34,7 @@ resource "aws_s3_bucket" "example" {
   }
 }
 #s3 creation:
-resource "aws_s3_bucket2" "example" {
+resource "aws_s3_bucket" "example2" {
   bucket = "my-tf-prod-bucket-lami"
 
   tags = {
