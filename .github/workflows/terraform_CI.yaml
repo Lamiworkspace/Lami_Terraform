@@ -20,7 +20,7 @@ jobs:
 
   outputbetweensteps:
     name: outputbetweensteps
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: output01
         id: out
@@ -30,3 +30,4 @@ jobs:
         run: |
           echo "Calling API VERSION NUMBER"
           echo "${{ steps.out.outputs.API_VERSION }}"
+    
