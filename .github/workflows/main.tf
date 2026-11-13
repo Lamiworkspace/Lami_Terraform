@@ -10,8 +10,8 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "eu-north-1"
-  #access_key = "AKIA54D4WQB6UHJQDV4H"
-  #secret_key = "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"
+  access_key = "AKIA54D4WQB6UHJQDV4H"
+  secret_key = "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"
 }
 
 terraform {
@@ -19,8 +19,8 @@ terraform {
     bucket         = "quest-dev-bucket"
     key            = "tf_statefile/terraform.tfstate"
     region         = "eu-north-1"
-    #access_key = "AKIA54D4WQB6UHJQDV4H"
-    #secret_key = "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"              
+    access_key = "AKIA54D4WQB6UHJQDV4H"
+    secret_key = "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"              
   }
 }
 
