@@ -17,7 +17,7 @@ provider "aws" {
 terraform {
  backend "s3" {
    bucket         = "quest-dev-bucket"
-  key            = "tf_statefile/terraform.tfstate"
+  key            = "tf_statefile2/terraform.tfstate"
    region         = "eu-north-1"
    access_key = "AKIA54D4WQB6UHJQDV4H"
    secret_key = "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"              
